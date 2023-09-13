@@ -1,6 +1,6 @@
 
 
-NAME		:= program
+NAME		:= abtract
 
 SRCS		:= Brain.cpp Dog.cpp Cat.cpp Animal.cpp main.cpp
 

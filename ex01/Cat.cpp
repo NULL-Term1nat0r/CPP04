@@ -12,7 +12,6 @@
 
 #include "Header.h"
 #include "Cat.hpp"
-#include "../../ex00/Cat.hpp"
 
 // Implement class methods here
 
@@ -31,7 +30,9 @@ Cat::Cat(std::string type) : Animal(type)
 Cat::Cat(const Cat &other)
 {
 	*this = other;
-	this->brain_attribute = NULL;
+	delete this->brain_attribute;
+	this->brain_attribute = other.brain_attribute;
+	this->_type = other.getType();
 	std::cout << "Cat copy constructor called" << std::endl;
 }
 
@@ -57,10 +58,15 @@ void Cat::makeSound() const {
 	std::cout << "cat makes meeeooooow...\n";
 }
 
-void Cat::setIdeas(int index, std::string idea) {
-	this->brain_attribute->setIdeas(index, idea);
+Brain *Cat::getBrain() const{
+	return brain_attribute;
 }
 
-std::string Cat::getIdeas(int index) {
-	return this->brain_attribute->getIdeas(index);
+const std::string Cat::getIdea(int index) const{
+//	std::cout << getBrain()->getIdea(index) << std::endl;
+	return (getBrain()->getIdea(index));
+}
+
+void Cat::setIdea(std::string idea, int index) const{
+	this->getBrain()->setIdea(index, idea);
 }

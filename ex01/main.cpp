@@ -24,21 +24,59 @@
 
 int main(){
 
-	int number = 10;
-	Cat cat_array[number / 2];
-	Dog dog_array[number / 2];
+//	Animal *animal = new Cat();
+//
+//	animal->setIdea("Zwiebel", 0);
+//	animal->setIdea("Zwiebel2", 0);
+//
+//
+//	std::cout << "idea: " << animal->getIdea(0) << std::endl;
+//	delete animal;
 
-	for(int i = 0;i < number;i++){
-		if (i < number / 2){
-			cat_array[i] = Cat("cat");
-			cat_array[i].setIdeas(i, "ultimate cat smartness");
-			std::cout << RED << "brain_attribute cat: " << cat_array[i].getIdeas(i) << RESET << std::endl;
-		}
-		if (i >= number / 2){
-			dog_array[i - number / 2] = Dog("dog");
-			dog_array[i - number / 2].setIdeas(i, "ultimate dog smartness");
-			std::cout << GREEN << "brain_attribute dog: " << dog_array[i - number / 2].getIdeas(i) << RESET << std::endl;
-		}
-	}
-	return 0;
+//	const Animal* j = new Dog();
+//	const Animal* i = new Cat();
+//
+//	std::cout << "\n\n";
+//	delete j;
+//	delete i;
+
+//	std::cout << "\n\n";
+//
+//	Animal* zoo[10];
+//
+//	for (int x = 0; x < 10; x++) {
+//		if (x % 2) {
+//			zoo[x] = new Dog();
+//			zoo[x]->setIdea("Zwiebel", x);
+//			std::cout << "Brain idea of dog: " << zoo[x]->getIdea(x) << std::endl;
+//		}
+//		else {
+//			zoo[x] = new Cat();
+//			zoo[x]->setIdea("Zwiebel", x);
+//			std::cout << "Brain idea of cat: " << zoo[x]->getIdea(x) << std::endl;
+//		}
+//	}
+//
+//	std::cout << "\n\n";
+//
+////	for (int x = 0; x < 10; x++) {
+////		std::cout << x << " " << zoo[x]->getType() << " ";
+////		zoo[x]->makeSound();
+////	}
+//
+//	std::cout << "\n\n";
+//
+//
+//	for (int x = 0; x < 10; x++) {
+//		delete zoo[x];
+//	}
+//
+//
+	Cat *dog1 = new Cat();
+	dog1->setIdea("idea", 0);
+
+	delete dog1;
+
+//delete dog1;
+//delete dog2;
 }

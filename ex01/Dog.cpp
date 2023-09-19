@@ -19,18 +19,12 @@ Dog::Dog() : Animal("Dog")
 {
 	std::cout << "Dog default constructor called" << std::endl;
 	this->brain_attribute = new Brain();
-}
-
-Dog::Dog(std::string type) : Animal(type)
-{
-	std::cout << "Dog constructor with type called" << std::endl;
-	this->brain_attribute = new Brain();
+	setType("Dog");
 }
 
 Dog::Dog(const Dog &other)
 {
 	*this = other;
-	this->brain_attribute = NULL;
 	std::cout << "Dog copy constructor called" << std::endl;
 }
 
@@ -57,10 +51,14 @@ void Dog::makeSound() const {
 	std::cout << "dog makes wau wau...\n";
 }
 
-void Dog::setIdeas(int index, std::string idea) {
-	this->brain_attribute->setIdeas(index, idea);
+	Brain *Dog::getBrain() const{
+	return brain_attribute;
 }
 
-std::string Dog::getIdeas(int index) {
-	return this->brain_attribute->getIdeas(index);
+const std::string Dog::getIdea(int index) const{
+	return (getBrain()->getIdea(index));
+}
+
+void Dog::setIdea(std::string idea, int index) const{
+	this->getBrain()->setIdea(index, idea);
 }

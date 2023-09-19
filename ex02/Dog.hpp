@@ -25,14 +25,15 @@ class Dog : public Animal
 
   public:
 	  Dog();
-	  Dog(std::string type);
 	  Dog(const Dog &other);
 	  ~Dog();
 	  Dog &operator=(const Dog &other);
 
+	  Brain *getBrain() const;
+	 const std::string getIdea(int index) const;
+	void setIdea(std::string idea, int index) const;
+
 	void		makeSound() const;
-	void		setIdeas(int index, std::string idea);
-	std::string	getIdeas(int index);
 };
 
 #endif

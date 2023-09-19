@@ -22,8 +22,9 @@ Brain::Brain()
 
 Brain::Brain(const Brain &other)
 {
-	*this = other;
 	std::cout << "Brain copy constructor called" << std::endl;
+	for (int i = 0; i < 100; i ++)
+		_ideas[i] = other._ideas[i];
 }
 
 Brain::~Brain()
@@ -33,22 +34,27 @@ Brain::~Brain()
 
 Brain &Brain::operator=(const Brain &other)
 {
-	if (this == &other)
-		return *this;
+	if (this != &other) {
+		for (int i = 0; i < 100; i ++) {
+			_ideas[i] = other._ideas[i];
+		}
+	}
 	std::cout << "Brain copy assignment constructor called" << std::endl;
 	return *this;
 }
 
-void Brain::setIdeas(int index, std::string idea) {
-	if (index > 99 || index < 0){
-		std::cout << "indec has to be between 0 and 99\n";
-		return;
+void Brain::setIdea(int index, std::string idea) {
+	if (index > 99 || index < 0)
+	{
+		std::cout << "Wrong index has to be between 0 and 99!\n";
+		return ;
 	}
 	this->_ideas[index] = idea;
 }
 
-std::string Brain::getIdeas(int index) {
-	if (index > 99 || index < 0){
+const std::string Brain::getIdea(int index) const {
+	if (index > 99 || index < 0)
+	{
 		std::cout << "Wrong index has to be between 0 and 99!\n";
 		return "";
 	}

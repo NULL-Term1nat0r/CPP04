@@ -16,6 +16,8 @@
 #include <string>
 #include <iostream>
 
+#include "Brain.hpp"
+
 class Animal
 {
 	protected:
@@ -25,13 +27,13 @@ class Animal
 		Animal();
 		Animal(std::string type);
 		Animal(const Animal &other);
-		~Animal();
+		virtual ~Animal();
 		Animal &operator=(const Animal &other);
 		void setType(std::string type);
 		std::string getType(void) const;
-		void makeSound() const;
-
-
+		virtual void makeSound() const;
+		virtual const std::string getIdea(int index) const = 0;
+		virtual void setIdea(std::string idea, int index) const = 0;
 };
 
 #endif
